@@ -1,37 +1,63 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
+import "./ListSeries.css";
+import Detalles from "./Detalles";
+import CustomNavbar from "./CustomNavbar";
 
 const ListSeries = ({ series }) => {
-    return (
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-            {
-                series.map((serie, index) => (
-                    <div key={index} style={{
-                        border: "1px solid #ccc",
-                        borderRadius: "10px",
-                        padding: "15px",
-                        margin: "10px",
-                        maxWidth: "400px",
-                        textAlign: "center",
-                        background: "#fff",
-                        boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)"
-                    }}>
-                        <img src={serie.image} alt={serie.name} style={{ width: "100%", borderRadius: "10px" }} />
-                        <h3>{serie.name}</h3>
-                        <p><strong>Año:</strong> {serie.releaseDate}</p>
-                        <p><strong>Descripción:</strong> {serie.description}</p>
-                        <iframe 
-                            width="100%" 
-                            height="200" 
-                            src={serie.video} 
-                            title={serie.name} 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowFullScreen>
-                        </iframe>
-                    </div>
-                ))
-            }
-        </div>
+    const [seriesList, setSeriesList] = useState(series);
+    const [searchQuery, setSearchQuery] = useState(""); 
+    const [selectedSerie, setSelectedSerie] = useState(null);
+
+    useEffect(() => {
+        console.log("Series iniciales:", series);
+        setSeriesList(series);
+    }, [series]);
+
+    const handleSearch = (query) => {
+        setSearchQuery(query);
+    };
+
+    const filteredSeries = seriesList.filter(serie =>
+        serie.name.toLowerCase().includes(searchQuery.toLowerCase())
     );
-}
+
+    console.log("Búsqueda:", searchQuery);
+    console.log("Series después del filtro:", filteredSeries);
+
+    return (
+        <>
+            <CustomNavbar onSearch={handleSearch} />
+
+            <div className="list-series-container">
+                {filteredSeries.length > 0 ? (
+                    filteredSeries.map((serie, index) => (
+                        <div key={index} className="serie-card">
+                            <img 
+                                src={serie.image ? serie.image : "https://via.placeholder.com/300x450?text=Imagen+No+Disponible"} 
+                                alt={serie.name} 
+                                className="serie-image" 
+                            />
+                            <h3 className="serie-title">{serie.name}</h3>
+                            <p className="serie-info"><strong>Año:</strong> {serie.releaseDate}</p>
+
+                            {/* Botones */}
+                            <div className="serie-buttons">
+                                <button className="serie-button" onClick={() => setSelectedSerie(serie)}>
+                                    Mostrar detalles
+                                </button>
+                                <button className="serie-button delete-button">Borrar</button>
+                            </div>
+                        </div>
+                    ))
+                ) : (
+                    <p className="no-series">No hay series que coincidan con la búsqueda o los filtros seleccionados.</p>
+                )}
+
+               
+                {selectedSerie && <Detalles serie={selectedSerie} onClose={() => setSelectedSerie(null)} />}
+            </div>
+        </>
+    );
+};
 
 export default ListSeries;
