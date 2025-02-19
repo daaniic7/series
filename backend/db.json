@@ -1,0 +1,89 @@
+{
+    "platforms": [
+      {
+        "id": "1",
+        "name": "Netflix"
+      },
+      {
+        "id": "2",
+        "name": "HBO MAX"
+      },
+      {
+        "id": "3",
+        "name": "Amazon Prime Video"
+      },
+      {
+        "id": "4",
+        "name": "Disney Plus"
+      },
+      {
+        "id": "5",
+        "name": "Apple TV"
+      }
+    ],
+    "category": [
+      {
+        "id": "1",
+        "name": "Drama"
+      },
+      {
+        "id": "2",
+        "name": "Comedia"
+      },
+      {
+        "id": "3",
+        "name": "Acción"
+      },
+      {
+        "id": "4",
+        "name": "Ciencia Ficción"
+      },
+      {
+        "id": "5",
+        "name": "Fantasía"
+      }
+    ],
+    "series": [
+      {
+        "id": "1",
+        "name": "Breaking Bad",
+        "description": "Breaking Bad es una serie de televisión estadounidense creada y producida por Vince Gilligan. Se estrenó el 20 de enero de 2008 y finalizó el 29 de septiembre de 2013, después de cinco temporadas y 62 episodios. La serie narra la vida de Walter White, un profesor de química con problemas económicos a quien le diagnostican un cáncer de pulmón inoperable. Para asegurar el futuro económico de su familia tras su inminente muerte, Walter decide producir metanfetamina con Jesse Pinkman, un antiguo alumno suyo.",
+        "releaseDate": "20/01/2008",
+        "platforms": [1, 2, 3, 4, 5],
+        "category": [1, 2],
+        "image": "",
+        "video": ""
+      },
+      {
+        "id": "2",
+        "name": "Stranger Things",
+        "description": "Stranger Things es una serie de televisión estadounidense creada por los hermanos Duffer. Se estrenó en Netflix el 15 de julio de 2016. La serie combina el drama, la ciencia ficción y el terror con un grupo de niños enfrentándose a fenómenos paranormales en la ciudad de Hawkins.",
+        "releaseDate": "15/07/2016",
+        "platforms": [1],
+        "category": [1, 4, 5],
+        "image": "",
+        "video": ""
+      },
+      {
+        "id": "3",
+        "name": "Game of Thrones",
+        "description": "Game of Thrones es una serie de televisión basada en la saga literaria Canción de hielo y fuego de George R.R. Martin. Se estrenó en HBO el 17 de abril de 2011 y concluyó el 19 de mayo de 2019, con 8 temporadas. La serie sigue la lucha entre diferentes casas nobles por el Trono de Hierro en Westeros.",
+        "releaseDate": "17/04/2011",
+        "platforms": [2],
+        "category": [1, 5],
+        "image": "",
+        "video": ""
+      },
+      {
+        "id": "4",
+        "name": "The Mandalorian",
+        "description": "The Mandalorian es una serie de televisión de Star Wars creada por Jon Favreau. Se estrenó en Disney+ el 12 de noviembre de 2019. Sigue la historia de un cazarrecompensas mandaloriano en la galaxia después de la caída del Imperio.",
+        "releaseDate": "12/11/2019",
+        "platforms": [4],
+        "category": [3, 5],
+        "image": "",
+        "video": ""
+      }
+    ]
+  }
+  
